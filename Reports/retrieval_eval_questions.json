@@ -1,0 +1,70 @@
+[
+  {
+    "question": "Find incident file numbers and dates",
+    "expected_tables": ["dbo.IncidentLog_TBL"],
+    "expected_columns": {
+      "dbo.IncidentLog_TBL": [
+        "IncidentLog_PRK",
+        "inlFileNo_TXT",
+        "inlDateTime_DTM"
+      ]
+    }
+  },
+  {
+    "question": "Show active incidents with their incident dates",
+    "expected_tables": [
+      "dbo.ActiveIncidents_TBL",
+      "dbo.IncidentLog_TBL"
+    ],
+    "expected_columns": {
+      "dbo.ActiveIncidents_TBL": [
+        "ActiveIncidents_PRK",
+        "aciIncident_FRK"
+      ],
+      "dbo.IncidentLog_TBL": [
+        "IncidentLog_PRK",
+        "inlDateTime_DTM"
+      ]
+    }
+  },
+  {
+    "question": "List incident categories and activity types",
+    "expected_tables": ["dbo.IncidentCategory_TBL"],
+    "expected_columns": {
+      "dbo.IncidentCategory_TBL": [
+        "incName_TXT",
+        "incActivityType_INT"
+      ]
+    }
+  },
+  {
+    "question": "Find building alarm instructions by building name",
+    "expected_tables": ["dbo.Building_TBL"],
+    "expected_columns": {
+      "dbo.Building_TBL": [
+        "bldBuildingName_TXT",
+        "bldAlarmInstructions_MEM"
+      ]
+    }
+  },
+  {
+    "question": "Find vehicle registration details linked to incidents",
+    "expected_tables": ["dbo.IncidentVehicleLink_TBL"],
+    "expected_columns": {
+      "dbo.IncidentVehicleLink_TBL": [
+        "ivlIncident_FRK",
+        "ivlVehicleRegistration_TXT"
+      ]
+    }
+  },
+  {
+    "question": "Find people connected to incidents",
+    "expected_tables": ["dbo.IncidentPersonLink_TBL"],
+    "expected_columns": {
+      "dbo.IncidentPersonLink_TBL": [
+        "iplIncident_FRK",
+        "iplPerson_FRK"
+      ]
+    }
+  }
+]
